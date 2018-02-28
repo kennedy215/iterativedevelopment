@@ -1,22 +1,33 @@
-from flask import Flask
+from flask import Flask, render_template, url_for, redirect
 app = Flask(__name__)
 
+
+#fake database of restaurants
+
+restaurant = {'name':'Shit Burgers','id':'1'}
+
+restaurants = [{'name':'Krappers','id':1}, {'name':'Mc Shitties','id':2}]
+
+
 #Initial
+#the argument restaurant_id = restaurant id allows me to pass the value
+#of restaurant_id to the template restarants.html
 @app.route('/')
-@app.route('/restaurants/<int:restaurant_id>')
-def showRestaurants(restaurant_id):
-    restaurant_id = "This page will show all my restaurants"
-    return restaurant_id
+@app.route('/restaurants')
+def showRestaurants():
+    restaurants_id = restaurants
+    return render_template('restaurants.html', restaurants_id = restaurants_id)
+
 
 #Create a new restaurant
+#int will turn into an interger once checked
 @app.route('/restaurant/new')
 @app.route('/restaurant/<int:restaurant_id>/menu/new')
 def newRestaurant(restaurant_id):
     restaurant_id = "This page will be for making new restaurants"
-    return restaurant_id
+    return render_template('restaurantNew.html',restaurant_id = restaurant_id)
 
-
-#Edit a restaurant
+#Edit a restaurant & menu
 @app.route('/restaurant/<int:restaurant_id>/edit')
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
 def editRestaurant(restaurant_id,menu_id):
