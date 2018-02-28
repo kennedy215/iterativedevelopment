@@ -20,8 +20,8 @@ def newRestaurant():
 @app.route('/restaurant/<int:restaurant_id>/edit')
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
 def editRestaurant():
-    restaurant_id = "This page will be for editing restaurant restaurant_id"
-    menu_id = "Me too"
+    restaurant_id = "restaurant_id"
+    menu_id = "menu_id"
     return restaurant_id
 
 #Delete a restaurant
@@ -29,6 +29,28 @@ def editRestaurant():
 def deleteRestaurant():
     restaurant_id = "This page will be for deleting restaurant"
     return restaurant_id
+
+#Show menu
+@app.route('/restaurant/restaurant_id')
+@app.route('/restaurant/restaurant_id/menu')
+def showMenu():
+    restaurant_id = "This page is for making a new menu for a restaurant"
+    return restaurant_id
+
+#New Menu Item
+@app.route('/restaurant_id/menu/new')
+def newMenuItem():
+    return "This page is for making new menu"
+
+#Edit Menu Item
+@app.route('/restaurant/restaurant_id/menu/menu_id/edit/')
+def editMenuItem():
+    return "This page is to edit menu"
+
+#Delete Menu Item
+@app.route('/restaurant_id/menu/menu_id/delete')
+def deleteMenuItem():
+    return "This page deletes the menu"
 
 
 
