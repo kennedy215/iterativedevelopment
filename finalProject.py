@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 #fake database of restaurants
 
-restaurant = {'name':'Shit Burgers','id':'1'}
+restaurant = {'name':'Pib Burgers','id':'1'}
 
-restaurants = [{'name':'Krappers','id':1}, {'name':'Mc Shitties','id':2}]
+restaurants = [{'name':'KCreeppers','id':1}, {'name':'Mc Shrimpss','id':2}]
 
 
 #Initial
