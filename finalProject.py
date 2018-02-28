@@ -8,6 +8,10 @@ restaurant = {'name':'Pib Burgers','id':'1'}
 
 restaurants = [{'name':'KCreeppers','id':1}, {'name':'Mc Shrimpss','id':2}]
 
+items = [ {'name':'Cheese Pizza', 'description':'made with fresh cheese', 'price':'$5.99','course' :'Entree', 'id':'1'}, {'name':'Chocolate Cake','description':'made with Dutch Chocolate', 'price':'$3.99', 'course':'Dessert','id':'2'},{'name':'Caesar Salad', 'description':'with fresh organic vegetables','price':'$5.99', 'course':'Entree','id':'3'},{'name':'Iced Tea', 'description':'with lemon','price':'$.99', 'course':'Beverage','id':'4'},{'name':'Spinach Dip', 'description':'creamy dip with fresh spinach','price':'$1.99', 'course':'Appetizer','id':'5'} ]
+item =  {'name':'Cheese Pizza','description':'made with fresh cheese','price':'$5.99','course' :'Entree'}
+
+
 
 #Initial
 #the argument restaurant_id = restaurant id allows me to pass the value
@@ -15,8 +19,8 @@ restaurants = [{'name':'KCreeppers','id':1}, {'name':'Mc Shrimpss','id':2}]
 @app.route('/')
 @app.route('/restaurants')
 def showRestaurants():
-    restaurants_id = restaurants
-    return render_template('restaurants.html', restaurants_id = restaurants_id)
+    restaurant_id = restaurants
+    return render_template('restaurants.html', restaurant_id = restaurant_id)
 
 
 #Create a new restaurant
@@ -24,14 +28,18 @@ def showRestaurants():
 @app.route('/restaurant/new')
 @app.route('/restaurant/<int:restaurant_id>/menu/new')
 def newRestaurant(restaurant_id):
-    restaurant_id = "This page will be for making new restaurants"
-    return render_template('restaurantNew.html',restaurant_id = restaurant_id)
+    restaurant_id = restaurant
+    return render_template('newRestaurant.html',restaurant_id = restaurant_id)
+
+
 
 #Edit a restaurant & menu
 @app.route('/restaurant/<int:restaurant_id>/edit')
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
 def editRestaurant(restaurant_id,menu_id):
-    return "edit restaurant's menu"
+    restaurant_id = restaurant
+    menu_id = item 
+    return render_template('editRestaurant.html',restaurant_id = restaurant_id,menu_id = menu_id)
 
 #Delete a restaurant
 @app.route('/restaurant/<int:restaurant_id>/delete')
