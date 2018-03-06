@@ -6,7 +6,16 @@
   </head>
   <body>
     <h1> All Restaurants </h1>
-    <p>{{restaurants_id}}</p>
+    <a href="{{url_for('newRestaurant')}}"><h3>Create new restaurant</h3></a>
+    <!-- {% for restaurant in restaurants %}
+    {% endfor %} -->
+    <p>
+      <list>
+        <li> {{ restaurant_id.name}} </li>
+        <li> test </li>
+      </list>
+    </p>
+
 
   </body>
 </html>
