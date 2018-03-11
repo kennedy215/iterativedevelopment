@@ -2,18 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>All Restaurants</title>
+    <title>{{ restaurant }} - All Restaurants</title>
   </head>
   <body>
-    <h1> All Restaurants </h1>
+    <h1> Welcome {{ user.username }} </h1>
+      <h2> All Restaurants </h2>
     <a href="{{url_for('newRestaurant')}}"><h3>Create new restaurant</h3></a>
-    <!-- {% for restaurant in restaurants %}
-    {% endfor %} -->
+
+
     <p>
+      {% for restaurant in restaurants %}
       <list>
-        <li> {{ restaurant_id.name}} </li>
-        <li> test </li>
+        <li> {{ restaurant.name }} </li>
       </list>
+      {% endfor %}
     </p>
 
 

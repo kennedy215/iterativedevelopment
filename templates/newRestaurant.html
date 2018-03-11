@@ -5,6 +5,8 @@
     <title>New Restaurant</title>
   </head>
   <body>
-    <h1> {{restaurant_id}} </h1> 
+    {% for restaurant in restaurants %}
+    <h1> {{restaurant.name}} </h1>
+    {% endfor %}
   </body>
 </html>
